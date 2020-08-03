@@ -171,7 +171,7 @@ func (a *APIReader) FetchECBlockByHeight(height uint32) (interfaces.IEntryCredit
 }
 
 func (a *APIReader) FetchHeadIndexByChainID(chainID interfaces.IHash) (interfaces.IHash, error) {
-	resp, err := factom.GetChainHead(chainID.String())
+	resp, _, err := factom.GetChainHead(chainID.String())
 	if err != nil {
 		return nil, err
 	}
@@ -239,4 +239,3 @@ func rawBytesToEntry(raw []byte) (interfaces.IEntry, error) {
 	}
 	return entry, nil
 }
-
